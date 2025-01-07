@@ -97,9 +97,7 @@ function moveSlider() {
 }
 
 // Function to update the slider position
-function updateSliderPosition() {
-    slider.style.transform = `translateX(-${currentIndex * 25}%)`;  // Adjust for 4 items per slide
-}
+
 
 // Function to check if any video is playing
 function checkVideoStatus() {
@@ -135,3 +133,7 @@ setInterval(checkVideoStatus, 6000);
 
 // Initially start the carousel movement
 sliderInterval = setInterval(moveSlider, 6000);  // Move the carousel every 3 seconds
+// Function to update the slider position
+function updateSliderPosition() {
+    slider.style.transform = `translateX(-${currentIndex * 10}%)`;  // Adjust for 4 items per slide
+}
