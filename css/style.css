@@ -16,6 +16,10 @@ h2,
     width: 100vw;
     height: 95vh;
 }
+.imgh{
+    height:80px; 
+    width:250px;
+}
 h3,
 h4,
 .h3,
@@ -188,6 +192,10 @@ h6,
         height: 100%;
         object-fit: cover;
     }
+    .imgh{
+    height:70px; 
+    width:150px;
+}
 
     .header-carousel .owl-carousel-item p {
         font-size: 16px !important;
