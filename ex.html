@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Testimonials Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .video-gallery {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery-heading {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .video-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .video-item {
+            min-width: 25%;
+            /* 4 items per slide */
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .testimonial-text {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="video-gallery">
+        <h2 class="gallery-heading">ग्राहकों की वीडियो समीक्षाएं</h2>
+        <div class="slider-container">
+            <div class="video-slider">
+                <div class="video-item">
+                    <video controls>
+                        <source src="./img/tess2 (1).mp4" type="video/mp4">
+                        आपका ब्राउज़र इस वीडियो को चलाने में सक्षम नहीं है।
+                    </video>
+                    <p class="testimonial-text">"यह अनुभव अद्भुत था!"</p>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="./img/tess2 (2).mp4" type="video/mp4">
+                        आपका ब्राउज़र इस वीडियो को चलाने में सक्षम नहीं है।
+                    </video>
+                    <p class="testimonial-text">"हम बेहद संतुष्ट हैं।"</p>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="./img/tess2 (3).mp4" type="video/mp4">
+                        आपका ब्राउज़र इस वीडियो को चलाने में सक्षम नहीं है।
+                    </video>
+                    <p class="testimonial-text">"यह टीम शानदार है!"</p>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="./img/tess2 (4).mp4" type="video/mp4">
+                        आपका ब्राउज़र इस वीडियो को चलाने में सक्षम नहीं है।
+                    </video>
+                    <p class="testimonial-text">"हमारी परियोजना बेहतरीन रही!"</p>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="./img/tess2 (5).mp4" type="video/mp4">
+                        आपका ब्राउज़र इस वीडियो को चलाने में सक्षम नहीं है।
+                    </video>
+                    <p class="testimonial-text">"सपनों से ज्यादा कुछ नहीं!"</p>
+                </div>
+                <div class="video-item">
+                    <video controls>
+                        <source src="./img/tess2 (6).mp4" type="video/mp4">
+                        आपका ब्राउज़र इस वीडियो को चलाने में सक्षम नहीं है।
+                    </video>
+                    <p class="testimonial-text">"बहुत अच्छा अनुभव!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const slider = document.querySelector('.video-slider');
+        const videoItems = document.querySelectorAll('.video-item video');  // Get all video elements
+        let currentIndex = 0;
+        let sliderInterval;
+
+        // Function to move the slider
+        function moveSlider() {
+            if (currentIndex < videoItems.length - 4) {
+                currentIndex++;
+            }
+            updateSliderPosition();
+        }
+
+        // Function to update the slider position
+        function updateSliderPosition() {
+            slider.style.transform = `translateX(-${currentIndex * 25}%)`;  // Adjust for 4 items per slide
+        }
+
+        // Check if any video is playing and pause the carousel if so
+        function checkVideoStatus() {
+            let isAnyVideoPlaying = false;
+
+            videoItems.forEach(video => {
+                if (!video.paused) {
+                    isAnyVideoPlaying = true;
+                }
+            });
+
+            if (isAnyVideoPlaying) {
+                clearInterval(sliderInterval);  // Pause the carousel when a video is playing
+            } else {
+                sliderInterval = setInterval(moveSlider, 6000);  // Restart the carousel every 3 seconds
+            }
+        }
+
+        // Set an interval to check the video status every second
+        setInterval(checkVideoStatus, 3000);
+
+        // Initially start the carousel movement
+        sliderInterval = setInterval(moveSlider, 6000);  // Move the carousel every 3 seconds
+
+    </script>
+</body>
+
+</html>
